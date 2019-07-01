@@ -1,0 +1,1272 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="下载量最高的 100 个 Laravel 扩展包推荐, 西路之火,PHP">
+    <meta name="description" content="说明Laravel 另一个令人喜欢的地方，是拥有活跃的开发者社区，而活跃的开发者社区带来的，是繁华的扩展包生态。本文对 Packagist 上打了 Laravel 标签 的扩展包进行整理，截止到现在 2016 年 8 月 9号，有超过 71">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>下载量最高的 100 个 Laravel 扩展包推荐 | 西路之火</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <link href="https://fonts.loli.net/css?family=Rubik" rel="stylesheet">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">西路之火</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">西路之火</div>
+        <div class="logo-desc">
+            
+            Learn and Live.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        下载量最高的 100 个 Laravel 扩展包推荐
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PHP/" target="_blank">
+                                <span class="chip bg-color">PHP</span>
+                            </a>
+                        
+                            <a href="/tags/Laravel/" target="_blank">
+                                <span class="chip bg-color">Laravel</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                Laravel
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-02-27
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>Laravel 另一个令人喜欢的地方，是拥有活跃的开发者社区，而活跃的开发者社区带来的，是繁华的扩展包生态。<br>本文对 Packagist 上打了 Laravel 标签 的扩展包进行整理，截止到现在 2016 年 8 月 9号，有超过 7176 个扩展包，以下是下载量最大的 100 个。<br>相信下面这 100 个扩展包会让你的编码更加高效 :beers:</p>
+<h4 id="排名"><a href="#排名" class="headerlink" title="排名"></a>排名</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">排名</th>
+<th style="text-align:left">下载次数</th>
+<th style="text-align:left">Star 数</th>
+<th style="text-align:left">扩展包</th>
+<th style="text-align:left">一句话描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">2883968</td>
+<td style="text-align:left">3968</td>
+<td style="text-align:left">intervention/image</td>
+<td style="text-align:left">图片处理扩展包，支持裁剪、水印等处理，使用教程请见 <a href="https://laravel-china.org/topics/1903" target="_blank" rel="noopener">https://laravel-china.org/topics/1903</a></td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">2215372</td>
+<td style="text-align:left">3694</td>
+<td style="text-align:left">barryvdh/laravel-debugbar</td>
+<td style="text-align:left">页面调试工具栏 (对 phpdebugbar 的封装)，教程请见：<a href="https://laravel-china.org/topics/2531" target="_blank" rel="noopener">https://laravel-china.org/topics/2531</a></td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">2173424</td>
+<td style="text-align:left">3570</td>
+<td style="text-align:left">barryvdh/laravel-ide-helper</td>
+<td style="text-align:left">使用 IDE 开发 Laravel 项目的好帮手，支持 Facade 方法跳转，相关讨论请见：<a href="https://laravel-china.org/topics/2532" target="_blank" rel="noopener">https://laravel-china.org/topics/2532</a></td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">1269005</td>
+<td style="text-align:left">2396</td>
+<td style="text-align:left">maatwebsite/excel</td>
+<td style="text-align:left">Excel 处理工具，中文处理时会出现乱码，推荐使用 laravel-snappy，历史讨论请见 <a href="https://laravel-china.org/topics/2477" target="_blank" rel="noopener">https://laravel-china.org/topics/2477</a></td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">1131952</td>
+<td style="text-align:left">702</td>
+<td style="text-align:left">aws/aws-sdk-php-laravel</td>
+<td style="text-align:left">亚马逊 AWS 服务的开发者工具包，亚马逊云已经在 2016 年 8 月 正式落地中国，这个包以后会常用到，教程请见：<a href="https://laravel-china.org/topics/2533" target="_blank" rel="noopener">https://laravel-china.org/topics/2533</a></td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">750405</td>
+<td style="text-align:left">1016</td>
+<td style="text-align:left">jenssegers/agent</td>
+<td style="text-align:left">客户端 User Agent 解析工具（基于 Mobiledetect），教程请见：<a href="https://laravel-china.org/topics/782" target="_blank" rel="noopener">https://laravel-china.org/topics/782</a></td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">711842</td>
+<td style="text-align:left">216</td>
+<td style="text-align:left">bugsnag/bugsnag-laravel</td>
+<td style="text-align:left">Bugsnag 服务集成包（异常捕获服务，可惜国内访问效果不好），教程请见：<a href="https://laravel-china.org/topics/2534" target="_blank" rel="noopener">https://laravel-china.org/topics/2534</a></td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left">683268</td>
+<td style="text-align:left">3268</td>
+<td style="text-align:left">zizaco/entrust</td>
+<td style="text-align:left">基于用户组的用户权限系统（必备），教程请见：<a href="https://laravel-china.org/topics/166" target="_blank" rel="noopener">https://laravel-china.org/topics/166</a></td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left">644651</td>
+<td style="text-align:left">821</td>
+<td style="text-align:left">barryvdh/laravel-cors</td>
+<td style="text-align:left">跨域资源共享的支持</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left">571221</td>
+<td style="text-align:left">963</td>
+<td style="text-align:left">barryvdh/laravel-dompdf</td>
+<td style="text-align:left">PDF 操作工具（基于 dompdf ）</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left">548367</td>
+<td style="text-align:left">1172</td>
+<td style="text-align:left">laravelbook/ardent</td>
+<td style="text-align:left">自动 数据模型 验证工具</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left">534650</td>
+<td style="text-align:left">2364</td>
+<td style="text-align:left">tymon/jwt-auth</td>
+<td style="text-align:left">JWT (JSON Web Token) 用户认证机制，示例项目 <a href="https://laravel-china.org/topics/2023" target="_blank" rel="noopener">https://laravel-china.org/topics/2023</a></td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left">496656</td>
+<td style="text-align:left">1977</td>
+<td style="text-align:left">lucadegasperi/oauth2-server-laravel</td>
+<td style="text-align:left">OAuth 2.0 支持，实例教程：<a href="https://laravel-china.org/topics/1792" target="_blank" rel="noopener">https://laravel-china.org/topics/1792</a></td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left">468263</td>
+<td style="text-align:left">595</td>
+<td style="text-align:left">maknz/slack</td>
+<td style="text-align:left">Slack 服务的集成</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left">423728</td>
+<td style="text-align:left">1920</td>
+<td style="text-align:left">jenssegers/mongodb</td>
+<td style="text-align:left">MongoDB 数据库的支持 ，教程：<a href="https://laravel-china.org/topics/309" target="_blank" rel="noopener">https://laravel-china.org/topics/309</a></td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left">390006</td>
+<td style="text-align:left">4061</td>
+<td style="text-align:left">dingo/api</td>
+<td style="text-align:left">构建 API 服务器的完整解决方案，教程：<a href="https://laravel-china.org/topics/1159" target="_blank" rel="noopener">https://laravel-china.org/topics/1159</a></td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left">370341</td>
+<td style="text-align:left">912</td>
+<td style="text-align:left">itsgoingd/clockwork</td>
+<td style="text-align:left">配合 Chrome 浏览器下同名插件的调试工具，教程：<a href="https://laravel-china.org/topics/23" target="_blank" rel="noopener">https://laravel-china.org/topics/23</a></td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left">357552</td>
+<td style="text-align:left">600</td>
+<td style="text-align:left">anahkiasen/underscore-php</td>
+<td style="text-align:left">Underscore.js 类似的 PHP 语法支持</td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left">355742</td>
+<td style="text-align:left">1191</td>
+<td style="text-align:left">laracasts/generators</td>
+<td style="text-align:left">Laracasts 出品的代码快速生成工具（推荐） ，使用教程：<a href="https://laravel-china.org/topics/2535" target="_blank" rel="noopener">https://laravel-china.org/topics/2535</a></td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left">344522</td>
+<td style="text-align:left">1200</td>
+<td style="text-align:left">cviebrock/eloquent-sluggable</td>
+<td style="text-align:left">文章标题 URL 别名处理工具，教程：<a href="https://laravel-china.org/topics/1926" target="_blank" rel="noopener">https://laravel-china.org/topics/1926</a></td>
+</tr>
+<tr>
+<td style="text-align:left">21</td>
+<td style="text-align:left">344237</td>
+<td style="text-align:left">382</td>
+<td style="text-align:left">laracasts/testdummy</td>
+<td style="text-align:left">Laracasts 出品的假数据创建工具</td>
+</tr>
+<tr>
+<td style="text-align:left">22</td>
+<td style="text-align:left">321543</td>
+<td style="text-align:left">709</td>
+<td style="text-align:left">davejamesmiller/laravel-breadcrumbs</td>
+<td style="text-align:left">页面面包屑工具，教程：<a href="https://laravel-china.org/topics/1914" target="_blank" rel="noopener">https://laravel-china.org/topics/1914</a></td>
+</tr>
+<tr>
+<td style="text-align:left">23</td>
+<td style="text-align:left">309529</td>
+<td style="text-align:left">962</td>
+<td style="text-align:left">laracasts/utilities</td>
+<td style="text-align:left">将 PHP 变量转换为 JavaScript 变量</td>
+</tr>
+<tr>
+<td style="text-align:left">24</td>
+<td style="text-align:left">304501</td>
+<td style="text-align:left">621</td>
+<td style="text-align:left">roumen/sitemap</td>
+<td style="text-align:left">Sitemap 生成工具</td>
+</tr>
+<tr>
+<td style="text-align:left">25</td>
+<td style="text-align:left">303660</td>
+<td style="text-align:left">827</td>
+<td style="text-align:left">yajra/laravel-datatables-oracle</td>
+<td style="text-align:left">jQuery DataTables 的后端支持</td>
+</tr>
+<tr>
+<td style="text-align:left">26</td>
+<td style="text-align:left">302076</td>
+<td style="text-align:left">336</td>
+<td style="text-align:left">webpatser/laravel-uuid</td>
+<td style="text-align:left">RFC 4122 标准生成的 UUID ，使用教程 <a href="https://laravel-china.org/topics/2538" target="_blank" rel="noopener">https://laravel-china.org/topics/2538</a></td>
+</tr>
+<tr>
+<td style="text-align:left">27</td>
+<td style="text-align:left">301605</td>
+<td style="text-align:left">535</td>
+<td style="text-align:left">rcrowe/twigbridge</td>
+<td style="text-align:left">Twig 模板引擎支持</td>
+</tr>
+<tr>
+<td style="text-align:left">28</td>
+<td style="text-align:left">294356</td>
+<td style="text-align:left">218</td>
+<td style="text-align:left">intervention/imagecache</td>
+<td style="text-align:left">图片缓存增强工具</td>
+</tr>
+<tr>
+<td style="text-align:left">29</td>
+<td style="text-align:left">289380</td>
+<td style="text-align:left">958</td>
+<td style="text-align:left">indatus/dispatcher</td>
+<td style="text-align:left">计划任务分发器（直接可替换掉 Cron），L5 内置了类似的功能</td>
+</tr>
+<tr>
+<td style="text-align:left">30</td>
+<td style="text-align:left">234578</td>
+<td style="text-align:left">589</td>
+<td style="text-align:left">jenssegers/date</td>
+<td style="text-align:left">日期处理工具（让 Carbon 支持多语言，中文用户的福音）</td>
+</tr>
+<tr>
+<td style="text-align:left">31</td>
+<td style="text-align:left">234151</td>
+<td style="text-align:left">715</td>
+<td style="text-align:left">rap2hpoutre/laravel-log-viewer</td>
+<td style="text-align:left">非常方便的页面 Log 查看工具，必备，不过使用时请注意访问权限控制</td>
+</tr>
+<tr>
+<td style="text-align:left">32</td>
+<td style="text-align:left">204976</td>
+<td style="text-align:left">1109</td>
+<td style="text-align:left">baum/baum</td>
+<td style="text-align:left">嵌套集合 (Nested Set) 模型的支持，教程：<a href="https://laravel-china.org/topics/2124" target="_blank" rel="noopener">https://laravel-china.org/topics/2124</a></td>
+</tr>
+<tr>
+<td style="text-align:left">33</td>
+<td style="text-align:left">204619</td>
+<td style="text-align:left">2146</td>
+<td style="text-align:left">anahkiasen/rocketeer</td>
+<td style="text-align:left">现代化的服务器代码部署工具</td>
+</tr>
+<tr>
+<td style="text-align:left">34</td>
+<td style="text-align:left">194675</td>
+<td style="text-align:left">1026</td>
+<td style="text-align:left">anahkiasen/former</td>
+<td style="text-align:left">强大的表单构造器，教程请见 <a href="https://laravel-china.org/topics/2539" target="_blank" rel="noopener">https://laravel-china.org/topics/2539</a></td>
+</tr>
+<tr>
+<td style="text-align:left">35</td>
+<td style="text-align:left">190032</td>
+<td style="text-align:left">375</td>
+<td style="text-align:left">barryvdh/laravel-snappy</td>
+<td style="text-align:left">HTML 生成 PDF/Image 工具（利用 wkhtmltopdf）</td>
+</tr>
+<tr>
+<td style="text-align:left">36</td>
+<td style="text-align:left">184879</td>
+<td style="text-align:left">361</td>
+<td style="text-align:left">thujohn/twitter</td>
+<td style="text-align:left">Twitter API 的支持</td>
+</tr>
+<tr>
+<td style="text-align:left">37</td>
+<td style="text-align:left">184078</td>
+<td style="text-align:left">228</td>
+<td style="text-align:left">orchestra/testbench</td>
+<td style="text-align:left">Laravel 扩展包的单元测试工具</td>
+</tr>
+<tr>
+<td style="text-align:left">38</td>
+<td style="text-align:left">181799</td>
+<td style="text-align:left">258</td>
+<td style="text-align:left">graham-campbell/flysystem</td>
+<td style="text-align:left">文件系统操作，多平台支持（AWS，Dropbox 等）</td>
+</tr>
+<tr>
+<td style="text-align:left">39</td>
+<td style="text-align:left">180921</td>
+<td style="text-align:left">342</td>
+<td style="text-align:left">mews/purifier</td>
+<td style="text-align:left">用户提交的 Html 白名单过滤，<a href="https://laravel-china.org/topics/36" target="_blank" rel="noopener">https://laravel-china.org/topics/36</a></td>
+</tr>
+<tr>
+<td style="text-align:left">40</td>
+<td style="text-align:left">175355</td>
+<td style="text-align:left">349</td>
+<td style="text-align:left">laracasts/presenter</td>
+<td style="text-align:left">Laracasts 出品的 Presenter 方案</td>
+</tr>
+<tr>
+<td style="text-align:left">41</td>
+<td style="text-align:left">172640</td>
+<td style="text-align:left">852</td>
+<td style="text-align:left">venturecraft/revisionable</td>
+<td style="text-align:left">数据模型的操作记录（如管理员操作日记）</td>
+</tr>
+<tr>
+<td style="text-align:left">42</td>
+<td style="text-align:left">168707</td>
+<td style="text-align:left">995</td>
+<td style="text-align:left">mcamara/laravel-localization</td>
+<td style="text-align:left">Laravel 本地化功能增强</td>
+</tr>
+<tr>
+<td style="text-align:left">43</td>
+<td style="text-align:left">166917</td>
+<td style="text-align:left">366</td>
+<td style="text-align:left">league/factory-muffin</td>
+<td style="text-align:left">允许更加方便的创建对象，一般在测试中常用（基本上是 ROR 的 factory_girl 的复制版）</td>
+</tr>
+<tr>
+<td style="text-align:left">44</td>
+<td style="text-align:left">165140</td>
+<td style="text-align:left">271</td>
+<td style="text-align:left">robclancy/presenter</td>
+<td style="text-align:left">Elequent 的 Presenter 方案</td>
+</tr>
+<tr>
+<td style="text-align:left">45</td>
+<td style="text-align:left">163835</td>
+<td style="text-align:left">150</td>
+<td style="text-align:left">intouch/laravel-newrelic</td>
+<td style="text-align:left">应用状态监控服务 NewRelic 开发者工具包</td>
+</tr>
+<tr>
+<td style="text-align:left">46</td>
+<td style="text-align:left">157930</td>
+<td style="text-align:left">855</td>
+<td style="text-align:left">xethron/migrations-generator</td>
+<td style="text-align:left">从现存的数据中以 migration 的形式导出数据库表，包括索引和外键，相当于 数据库迁移</td>
+</tr>
+<tr>
+<td style="text-align:left">47</td>
+<td style="text-align:left">149079</td>
+<td style="text-align:left">410</td>
+<td style="text-align:left">greggilbert/recaptcha</td>
+<td style="text-align:left">reCAPTCHA 验证码的支持</td>
+</tr>
+<tr>
+<td style="text-align:left">48</td>
+<td style="text-align:left">144971</td>
+<td style="text-align:left">594</td>
+<td style="text-align:left">watson/validating</td>
+<td style="text-align:left">以 Trait 的方式来实现 Eloquent 数据模型保存的时候自动验证</td>
+</tr>
+<tr>
+<td style="text-align:left">49</td>
+<td style="text-align:left">142284</td>
+<td style="text-align:left">814</td>
+<td style="text-align:left">dimsav/laravel-translatable</td>
+<td style="text-align:left">数据库的多语言翻译方案</td>
+</tr>
+<tr>
+<td style="text-align:left">50</td>
+<td style="text-align:left">138661</td>
+<td style="text-align:left">120</td>
+<td style="text-align:left">laracasts/behat-laravel-extension</td>
+<td style="text-align:left">Behat 测试框架的 Laravel 支持</td>
+</tr>
+<tr>
+<td style="text-align:left">51</td>
+<td style="text-align:left">137782</td>
+<td style="text-align:left">200</td>
+<td style="text-align:left">jenssegers/rollbar</td>
+<td style="text-align:left">Rollbar 错误监控服务的自动集成</td>
+</tr>
+<tr>
+<td style="text-align:left">52</td>
+<td style="text-align:left">134723</td>
+<td style="text-align:left">330</td>
+<td style="text-align:left">torann/geoip</td>
+<td style="text-align:left">通过 IP 获取到对应的地理位置信息（GeoIP 数据库），请参考：<a href="https://laravel-china.org/topics/2537" target="_blank" rel="noopener">https://laravel-china.org/topics/2537</a></td>
+</tr>
+<tr>
+<td style="text-align:left">53</td>
+<td style="text-align:left">133803</td>
+<td style="text-align:left">658</td>
+<td style="text-align:left">davibennun/laravel-push-notification</td>
+<td style="text-align:left">App 的 Push Notification 发送工具，支持苹果的 APNS 和 安卓的 GCM</td>
+</tr>
+<tr>
+<td style="text-align:left">54</td>
+<td style="text-align:left">128523</td>
+<td style="text-align:left">168</td>
+<td style="text-align:left">chumper/zipper</td>
+<td style="text-align:left">ZIp 打包工具（基于 ZipArchive）</td>
+</tr>
+<tr>
+<td style="text-align:left">55</td>
+<td style="text-align:left">127700</td>
+<td style="text-align:left">244</td>
+<td style="text-align:left">simplesoftwareio/simple-qrcode</td>
+<td style="text-align:left">二维码生成工具</td>
+</tr>
+<tr>
+<td style="text-align:left">56</td>
+<td style="text-align:left">125421</td>
+<td style="text-align:left">374</td>
+<td style="text-align:left">graham-campbell/markdown</td>
+<td style="text-align:left">Markdown 解析器</td>
+</tr>
+<tr>
+<td style="text-align:left">57</td>
+<td style="text-align:left">125315</td>
+<td style="text-align:left">164</td>
+<td style="text-align:left">aloha/twilio</td>
+<td style="text-align:left">Twillio API 支持</td>
+</tr>
+<tr>
+<td style="text-align:left">58</td>
+<td style="text-align:left">123623</td>
+<td style="text-align:left">295</td>
+<td style="text-align:left">propaganistas/laravel-phone</td>
+<td style="text-align:left">手机号码，电话号码验证支持</td>
+</tr>
+<tr>
+<td style="text-align:left">59</td>
+<td style="text-align:left">121845</td>
+<td style="text-align:left">421</td>
+<td style="text-align:left">orangehill/iseed</td>
+<td style="text-align:left">将数据从数据库以 seed 的方式导出，数据填充 的逆向操作。（推荐）</td>
+</tr>
+<tr>
+<td style="text-align:left">60</td>
+<td style="text-align:left">121350</td>
+<td style="text-align:left">380</td>
+<td style="text-align:left">sammyk/laravel-facebook-sdk</td>
+<td style="text-align:left">（非官方）Laravel 的 Facebook 开发者工具包</td>
+</tr>
+<tr>
+<td style="text-align:left">61</td>
+<td style="text-align:left">120891</td>
+<td style="text-align:left">497</td>
+<td style="text-align:left">vinkla/hashids</td>
+<td style="text-align:left">Hash ID 生成器，方便把数字的 ID 隐藏（基于Hashids），教程：<a href="https://laravel-china.org/topics/2536" target="_blank" rel="noopener">https://laravel-china.org/topics/2536</a></td>
+</tr>
+<tr>
+<td style="text-align:left">62</td>
+<td style="text-align:left">116939</td>
+<td style="text-align:left">993</td>
+<td style="text-align:left">spatie/laravel-backup</td>
+<td style="text-align:left">数据备份工具，支持压缩，支持各种文件系统（推荐）</td>
+</tr>
+<tr>
+<td style="text-align:left">63</td>
+<td style="text-align:left">116718</td>
+<td style="text-align:left">459</td>
+<td style="text-align:left">mccool/laravel-auto-presenter</td>
+<td style="text-align:left">自动注入 Presenter，教程：<a href="https://laravel-china.org/topics/1267" target="_blank" rel="noopener">https://laravel-china.org/topics/1267</a></td>
+</tr>
+<tr>
+<td style="text-align:left">64</td>
+<td style="text-align:left">111879</td>
+<td style="text-align:left">270</td>
+<td style="text-align:left">graham-campbell/throttle</td>
+<td style="text-align:left">阀门控制工具</td>
+</tr>
+<tr>
+<td style="text-align:left">65</td>
+<td style="text-align:left">106306</td>
+<td style="text-align:left">1766</td>
+<td style="text-align:left">frozennode/administrator</td>
+<td style="text-align:left">快速创建基于数据模型的 CRUD 管理员后台，教程：<a href="https://laravel-china.org/topics/158" target="_blank" rel="noopener">https://laravel-china.org/topics/158</a> , <a href="https://laravel-china.org/topics/2407" target="_blank" rel="noopener">https://laravel-china.org/topics/2407</a></td>
+</tr>
+<tr>
+<td style="text-align:left">66</td>
+<td style="text-align:left">105181</td>
+<td style="text-align:left">430</td>
+<td style="text-align:left">codesleeve/laravel-stapler</td>
+<td style="text-align:left">专为 ORM 定制的文件上传支持</td>
+</tr>
+<tr>
+<td style="text-align:left">67</td>
+<td style="text-align:left">100442</td>
+<td style="text-align:left">307</td>
+<td style="text-align:left">webpatser/laravel-countries</td>
+<td style="text-align:left">世界所有国家数据，包括首都汇率等</td>
+</tr>
+<tr>
+<td style="text-align:left">68</td>
+<td style="text-align:left">97451</td>
+<td style="text-align:left">848</td>
+<td style="text-align:left">prettus/l5-repository</td>
+<td style="text-align:left">Repository 开发模式的支持</td>
+</tr>
+<tr>
+<td style="text-align:left">69</td>
+<td style="text-align:left">96491</td>
+<td style="text-align:left">371</td>
+<td style="text-align:left">pragmarx/google2fa</td>
+<td style="text-align:left">用户认证方案，支持谷歌提倡的双向认证和 HOTP 认证算法</td>
+</tr>
+<tr>
+<td style="text-align:left">70</td>
+<td style="text-align:left">94117</td>
+<td style="text-align:left">195</td>
+<td style="text-align:left">hisorange/browser-detect</td>
+<td style="text-align:left">浏览器检测工具，包括客户端对 JavaScript 和 CSS 支持情况的检测，教程：<a href="https://laravel-china.org/topics/2046" target="_blank" rel="noopener">https://laravel-china.org/topics/2046</a></td>
+</tr>
+<tr>
+<td style="text-align:left">71</td>
+<td style="text-align:left">93442</td>
+<td style="text-align:left">277</td>
+<td style="text-align:left">graham-campbell/htmlmin</td>
+<td style="text-align:left">基于 minify 的 HTML 压缩工具</td>
+</tr>
+<tr>
+<td style="text-align:left">72</td>
+<td style="text-align:left">90609</td>
+<td style="text-align:left">156</td>
+<td style="text-align:left">toin0u/geocoder-laravel</td>
+<td style="text-align:left">地理位置操作工具集（基于Geocoder）</td>
+</tr>
+<tr>
+<td style="text-align:left">73</td>
+<td style="text-align:left">89845</td>
+<td style="text-align:left">491</td>
+<td style="text-align:left">edvinaskrucas/notification</td>
+<td style="text-align:left">页面消息提醒的组件</td>
+</tr>
+<tr>
+<td style="text-align:left">74</td>
+<td style="text-align:left">89333</td>
+<td style="text-align:left">403</td>
+<td style="text-align:left">laracasts/integrated</td>
+<td style="text-align:left">PHPUnit 的集成测试支持</td>
+</tr>
+<tr>
+<td style="text-align:left">75</td>
+<td style="text-align:left">88682</td>
+<td style="text-align:left">779</td>
+<td style="text-align:left">laravel/envoy</td>
+<td style="text-align:left">Laravel 官方出品的简单的部署工具，教程：<a href="https://laravel-china.org/topics/24" target="_blank" rel="noopener">https://laravel-china.org/topics/24</a></td>
+</tr>
+<tr>
+<td style="text-align:left">76</td>
+<td style="text-align:left">86793</td>
+<td style="text-align:left">137</td>
+<td style="text-align:left">felixkiss/uniquewith-validator</td>
+<td style="text-align:left">表单验证规则增加字段之间的唯一性验证</td>
+</tr>
+<tr>
+<td style="text-align:left">77</td>
+<td style="text-align:left">81211</td>
+<td style="text-align:left">200</td>
+<td style="text-align:left">graham-campbell/exceptions</td>
+<td style="text-align:left">错误异常处理工具，支持开发和生产环境，使用 Whoops 进行错误显示</td>
+</tr>
+<tr>
+<td style="text-align:left">78</td>
+<td style="text-align:left">81076</td>
+<td style="text-align:left">163</td>
+<td style="text-align:left">thomaswelton/laravel-gravatar</td>
+<td style="text-align:left">Gravatar 服务的支持</td>
+</tr>
+<tr>
+<td style="text-align:left">79</td>
+<td style="text-align:left">79494</td>
+<td style="text-align:left">477</td>
+<td style="text-align:left">mews/captcha</td>
+<td style="text-align:left">图片验证码方案，使用教程请见：<a href="https://laravel-china.org/topics/2895" target="_blank" rel="noopener">https://laravel-china.org/topics/2895</a></td>
+</tr>
+<tr>
+<td style="text-align:left">80</td>
+<td style="text-align:left">79387</td>
+<td style="text-align:left">222</td>
+<td style="text-align:left">roumen/feed</td>
+<td style="text-align:left">Feed 生成器</td>
+</tr>
+<tr>
+<td style="text-align:left">81</td>
+<td style="text-align:left">79241</td>
+<td style="text-align:left">164</td>
+<td style="text-align:left">cviebrock/image-validator</td>
+<td style="text-align:left">表单验证增加图片专属，如长宽，比例等</td>
+</tr>
+<tr>
+<td style="text-align:left">82</td>
+<td style="text-align:left">77849</td>
+<td style="text-align:left">125</td>
+<td style="text-align:left">laravelcollective/annotations</td>
+<td style="text-align:left">基于注解方式生成路由、事件、模型绑定的映射</td>
+</tr>
+<tr>
+<td style="text-align:left">83</td>
+<td style="text-align:left">77061</td>
+<td style="text-align:left">870</td>
+<td style="text-align:left">gloudemans/shoppingcart</td>
+<td style="text-align:left">一个简单的购物车模块实现</td>
+</tr>
+<tr>
+<td style="text-align:left">84</td>
+<td style="text-align:left">75852</td>
+<td style="text-align:left">149</td>
+<td style="text-align:left">artisaninweb/laravel-soap</td>
+<td style="text-align:left">Soap 协议客户端</td>
+</tr>
+<tr>
+<td style="text-align:left">85</td>
+<td style="text-align:left">75476</td>
+<td style="text-align:left">260</td>
+<td style="text-align:left">jlapp/swaggervel</td>
+<td style="text-align:left">Swagger API 规范支持</td>
+</tr>
+<tr>
+<td style="text-align:left">86</td>
+<td style="text-align:left">73124</td>
+<td style="text-align:left">480</td>
+<td style="text-align:left">barryvdh/laravel-translation-manager</td>
+<td style="text-align:left">翻译辅助工具，包含 Web 界面</td>
+</tr>
+<tr>
+<td style="text-align:left">87</td>
+<td style="text-align:left">72532</td>
+<td style="text-align:left">515</td>
+<td style="text-align:left">patricktalmadge/bootstrapper</td>
+<td style="text-align:left">Twitter Bootstrap 支持</td>
+</tr>
+<tr>
+<td style="text-align:left">88</td>
+<td style="text-align:left">68952</td>
+<td style="text-align:left">133</td>
+<td style="text-align:left">soapbox/laravel-formatter</td>
+<td style="text-align:left">对不同输出格式进行转换，支持Array，CSV，JSON，XML，YAML</td>
+</tr>
+<tr>
+<td style="text-align:left">89</td>
+<td style="text-align:left">66968</td>
+<td style="text-align:left">155</td>
+<td style="text-align:left">fedeisas/laravel-mail-css-inliner</td>
+<td style="text-align:left">将 CSS 样式写入 HTML 里，用于邮件发送内容的样式定制</td>
+</tr>
+<tr>
+<td style="text-align:left">90</td>
+<td style="text-align:left">66881</td>
+<td style="text-align:left">747</td>
+<td style="text-align:left">nicolaslopezj/searchable</td>
+<td style="text-align:left">以 Trait 的形式为 Eloquent 模型增加搜索功能</td>
+</tr>
+<tr>
+<td style="text-align:left">91</td>
+<td style="text-align:left">65754</td>
+<td style="text-align:left">109</td>
+<td style="text-align:left">benconstable/phpspec-laravel</td>
+<td style="text-align:left">PHPSpec BDD 测试框架的 Laravel 扩展</td>
+</tr>
+<tr>
+<td style="text-align:left">92</td>
+<td style="text-align:left">65489</td>
+<td style="text-align:left">193</td>
+<td style="text-align:left">watson/rememberable</td>
+<td style="text-align:left">让 Laravel 5 数据模型支持 remember() 方法</td>
+</tr>
+<tr>
+<td style="text-align:left">93</td>
+<td style="text-align:left">63895</td>
+<td style="text-align:left">373</td>
+<td style="text-align:left">rtconner/laravel-tagging</td>
+<td style="text-align:left">为 Eloquent 模型增加打标签功能</td>
+</tr>
+<tr>
+<td style="text-align:left">94</td>
+<td style="text-align:left">62932</td>
+<td style="text-align:left">68</td>
+<td style="text-align:left">laravelcollective/remote</td>
+<td style="text-align:left">LaravelCollective 维护的 SSH 连接管理工具</td>
+</tr>
+<tr>
+<td style="text-align:left">95</td>
+<td style="text-align:left">60917</td>
+<td style="text-align:left">226</td>
+<td style="text-align:left">khill/lavacharts</td>
+<td style="text-align:left">Google 图表 JavaScript API 的封装</td>
+</tr>
+<tr>
+<td style="text-align:left">96</td>
+<td style="text-align:left">60203</td>
+<td style="text-align:left">115</td>
+<td style="text-align:left">anchu/ftp</td>
+<td style="text-align:left">让 Laravel 支持 FTP 操作</td>
+</tr>
+<tr>
+<td style="text-align:left">97</td>
+<td style="text-align:left">58556</td>
+<td style="text-align:left">355</td>
+<td style="text-align:left">liebig/cron</td>
+<td style="text-align:left">计划任务分发器（直接可替换掉 Cron），L5 内置了类似的功能</td>
+</tr>
+<tr>
+<td style="text-align:left">98</td>
+<td style="text-align:left">57174</td>
+<td style="text-align:left">348</td>
+<td style="text-align:left">lord/laroute</td>
+<td style="text-align:left">JavaScript 读取路由信息的解决方案</td>
+</tr>
+<tr>
+<td style="text-align:left">99</td>
+<td style="text-align:left">57053</td>
+<td style="text-align:left">643</td>
+<td style="text-align:left">spatie/laravel-analytics</td>
+<td style="text-align:left">Google 统计数据获取工具</td>
+</tr>
+<tr>
+<td style="text-align:left">100</td>
+<td style="text-align:left">56639</td>
+<td style="text-align:left">118</td>
+<td style="text-align:left">hieu-le/active</td>
+<td style="text-align:left">非常方便的方案来判断导航元素的 active 状态，使用教程请见：<a href="https://laravel-china.org/topics/2858" target="_blank" rel="noopener">https://laravel-china.org/topics/2858</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="转载"><a href="#转载" class="headerlink" title="转载"></a>转载</h4><blockquote>
+<p>转载请注明来自于 PHPHub，并贴上本文章链接：<a href="https://laravel-china.org/topics/2530" target="_blank" rel="noopener">https://laravel-china.org/topics/2530</a></p>
+</blockquote>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://blog.xiluhuo.cn" class="b-link-green">西路之火</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/laravel/xia-zai-liang-zui-gao-de-100-ge-laravel-kuo-zhan-bao-tui-jian/" class="b-link-green">下载量最高的 100 个 Laravel 扩展包推荐</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/uncategorized/ge-chong-shi-yong-de-gong-ju/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="各种实用的工具">
+                        
+                        <span class="card-title">各种实用的工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">估计大部分人都会有这样的问题，在平常玩微博或的时候看到别人分享的一些实用的东西，比如一些NB的js库，或者php组件等等。看完当时加入了浏览器书签。但是出现的现象就是很少去翻它，或者说由于懒得整理后期</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            cyd622
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/composer/packagist-jing-xiang-shi-yong-fang-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Packagist 镜像使用方法">
+                        
+                        <span class="card-title">Packagist 镜像使用方法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+还没安装 Composer 吗？请往下看如何安装 Composer 。
+
+镜像用法有两种方式启用本镜像服务：
+
+系统全局配置： 即将配置信息添加到 Composer 的全局配置文件 config.j</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Composer/" class="post-category" target="_blank">
+                                    Composer
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/Packagist/" target="_blank">
+                        <span class="chip bg-color">Packagist</span>
+                    </a>
+                    
+                    <a href="/tags/Composer/" target="_blank">
+                        <span class="chip bg-color">Composer</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 西路之火<br />'
+            + '作者: cyd622<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    
+
+</main>
+
+
+<footer class="page-footer foot-bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cyd622" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:luffywang622##gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

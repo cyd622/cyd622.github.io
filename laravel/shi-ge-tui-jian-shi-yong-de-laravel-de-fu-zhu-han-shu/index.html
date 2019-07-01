@@ -1,0 +1,747 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="十个推荐使用的Laravel的辅助函数, 西路之火,PHP">
+    <meta name="description" content="Laravel 包含各种全局辅助函数。 laravel 中包含大量辅助函数，您可以使用它们来简化开发工作流程。 在这里，我将编写10个最好的 laravel 帮助函数，用于使我的开发更容易。 您必须考虑在必要时使用它们。
+您还可以查看Lar">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>十个推荐使用的Laravel的辅助函数 | 西路之火</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <link href="https://fonts.loli.net/css?family=Rubik" rel="stylesheet">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">西路之火</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">西路之火</div>
+        <div class="logo-desc">
+            
+            Learn and Live.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        十个推荐使用的Laravel的辅助函数
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 4px 25px 4px 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PHP/" target="_blank">
+                                <span class="chip bg-color">PHP</span>
+                            </a>
+                        
+                            <a href="/tags/Laravel/" target="_blank">
+                                <span class="chip bg-color">Laravel</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                Laravel
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-04-26
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Laravel 包含各种全局辅助函数。 laravel 中包含大量辅助函数，您可以使用它们来简化开发工作流程。 在这里，我将编写10个最好的 laravel 帮助函数，用于使我的开发更容易。 您必须考虑在必要时使用它们。</p>
+<p>您还可以查看Laravel文档 <a href="https://learnku.com/docs/laravel/5.8/helpers/3919" target="_blank" rel="noopener">辅助函数</a>.</p>
+<h2 id="array-dot"><a href="#array-dot" class="headerlink" title="array_dot()"></a>array_dot()</h2><p><code>array_dot()</code> array_dot() 辅助函数允许你将多维数组转换为使用点符号的一维数组。</p>
+<pre><code>$array = [
+    &#39;user&#39; =&gt; [&#39;username&#39; =&gt; &#39;something&#39;],
+    &#39;app&#39; =&gt; [&#39;creator&#39; =&gt; [&#39;name&#39; =&gt; &#39;someone&#39;], &#39;created&#39; =&gt; &#39;today&#39;]
+];
+
+$dot_array = array_dot($array);
+
+// [user.username] =&gt; something, [app.creator.name] =&gt; someone, [app.created] =&gt; today
+</code></pre><h2 id="array-get"><a href="#array-get" class="headerlink" title="array_get()"></a>array_get()</h2><p><code>array_get()</code> 函数使用点符号从多维数组中检索值。</p>
+<pre><code>$array = [
+    &#39;user&#39; =&gt; [&#39;username&#39; =&gt; &#39;something&#39;],
+    &#39;app&#39; =&gt; [&#39;creator&#39; =&gt; [&#39;name&#39; =&gt; &#39;someone&#39;], &#39;created&#39; =&gt; &#39;today&#39;]
+];
+
+$name = array_get($array, &#39;app.creator.name&#39;);
+
+// someone
+</code></pre><p>如果key不存在，<code>array_get()</code> 函数还接受可选的第三个参数作为默认值。</p>
+<pre><code>$name = array_get($array, &#39;app.created.name&#39;, &#39;anonymous&#39;);
+
+// anonymous
+</code></pre><h2 id="public-path"><a href="#public-path" class="headerlink" title="public_path()"></a>public_path()</h2><p><code>public_path()</code> 返回 Laravel 应用程序中公共目录的完全限定的绝对路径。 你还可以将路径传递到公共目录中的文件或目录以获取该资源的绝对路径。 它将简单地将<code>public_path()</code> 添加到你的参数中。</p>
+<pre><code>$public_path = public_path();
+
+$path = public_path(&#39;js/app.js&#39;);
+</code></pre><h2 id="Str-orderedUuid"><a href="#Str-orderedUuid" class="headerlink" title="Str::orderedUuid()"></a>Str::orderedUuid()</h2><p><code>Str::orderedUuid()</code> 函数首先生成一个时间戳uuid。 这个uuid可以存储在索引数据库列中。 这些uuid是基于时间戳创建的，因此它们会保留你的内容索引。 在Laravel 5.6中使用它时，会引发 <code>Ramsey\Uuid\Exception\UnsatisfiedDependencyException</code>。 要解决此问题，只需运行以下命令即可使用 <code>moontoast/math</code> 包：:</p>
+<pre><code>composer require &quot;moontoast/math&quot;
+</code></pre><pre><code>use Illuminate\Support\Str;
+
+return (string) Str::orderByUuid()
+
+// A timestamp first uuid
+</code></pre><h2 id="str-plural"><a href="#str-plural" class="headerlink" title="str_plural()"></a>str_plural()</h2><p><code>str_plural</code> 函数将字符串转换为复数形式。该功能只支持英文。</p>
+<pre><code>echo str_plural(&#39;bank&#39;);
+
+// banks
+
+echo str_plural(&#39;developer&#39;);
+
+// developers
+</code></pre><h2 id="route"><a href="#route" class="headerlink" title="route()"></a>route()</h2><p><code>route()</code> 函数为指定的路由生成路由URL。</p>
+<pre><code>$url = route(&#39;login&#39;);
+</code></pre><p>如果路由接受参数，你可以简单地将它们作为第二个参数传递给一个数组。</p>
+<pre><code>$url = route(&#39;products&#39;, [&#39;id&#39; =&gt; 1]);
+</code></pre><p>如果你想产生一个相对的URL而不是一个绝对的URL，你可以传递<code>false</code>作为第三个参数。</p>
+<pre><code>$url = route(&#39;products&#39;, [&#39;id&#39; =&gt; 1], false);
+</code></pre><h2 id="tap"><a href="#tap" class="headerlink" title="tap()"></a>tap()</h2><p><code>tap()</code> 函数接受两个参数：一个值和一个闭包。该值将被传递给闭包，然后该值将被返回。闭包返回值无关紧要。</p>
+<pre><code>$user = App\User::find(1);
+
+return tap($user, function($user) {
+    $user-&gt;update([
+        &#39;name&#39; =&gt; &#39;Random&#39;
+    ]);
+});
+</code></pre><p>它不会返回布尔值，而是返回 <code>User Model</code> 。</p>
+<p>如果你没有传递闭包，你也可以使用 <code>User Model</code> 的任何方法。 无论实际返回的方法如何，返回值都将始终为值。 在下面的例子中，它将返回 <code>User Model</code> 而不是布尔值。 <code>update</code>方法返回布尔值，但由于用了 <code>tap</code> ，所以它将返回 <code>User Model</code>。</p>
+<pre><code>$user = App\User::find(1);
+
+return tap($user)-&gt;update([
+    &#39;name&#39; =&gt; &#39;SomeName&#39;
+]);
+</code></pre><h2 id="dump"><a href="#dump" class="headerlink" title="dump()"></a>dump()</h2><p><code>dump()</code> 函数会dump给定的变量，同时也支持同时传入多个变量。这对调试非常有用。</p>
+<pre><code>dump($var1);
+dump($var1, $var2, $var3);
+</code></pre><h2 id="str-slug"><a href="#str-slug" class="headerlink" title="str_slug()"></a>str_slug()</h2><p><code>str_slug()</code> 函数将给定的字符串生成一个 URL 友好的 slug。 你可以使用此功能为帖子或产品标题创建一个 slug。</p>
+<pre><code>$slug = str_slug(&#39;Helpers in Laravel&#39;, &#39;-&#39;);
+
+// helpers-in-laravel
+</code></pre><h2 id="optional"><a href="#optional" class="headerlink" title="optional()"></a>optional()</h2><p> <code>optional()</code> 函数接受一个参数，你可以调用参数的方法或访问属性。 如果传递的对象为null，则方法和属性将返回null，而不是导致错误或抛出异常。</p>
+<pre><code>$user = User::find(1);
+
+return optional($user)-&gt;name;
+</code></pre>
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://blog.xiluhuo.cn" class="b-link-green">西路之火</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/laravel/shi-ge-tui-jian-shi-yong-de-laravel-de-fu-zhu-han-shu/" class="b-link-green">十个推荐使用的Laravel的辅助函数</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/laravel/laravel9-ge-bu-jing-chang-yong-de-xiao-ji-qiao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Laravel 9 个不经常用的小技巧">
+                        
+                        <span class="card-title">Laravel 9 个不经常用的小技巧</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">更新父表的 timestamps如果你想在更新关联表的同时，更新父表的timestamps，你只需要在关联表的model中添加touches属性。比如我们有Post和Comment两个关联模型
+&lt</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/Laravel/" target="_blank">
+                        <span class="chip bg-color">Laravel</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/mysql/mysql-zui-jia-shi-jian-ru-he-suo-yin-json-zi-duan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MySQL最佳实践-如何索引JSON字段">
+                        
+                        <span class="card-title">MySQL最佳实践-如何索引JSON字段</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">概述MySQL从5.7.8起开始支持JSON字段，这极大的丰富了MySQL的数据类型。也方便了广大开发人员。但MySQL并没有提供对JSON对象中的字段进行索引的功能，至少没有直接对其字段进行索引的方</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mysql/" class="post-category" target="_blank">
+                                    Mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mysql/" target="_blank">
+                        <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 西路之火<br />'
+            + '作者: cyd622<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer foot-bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cyd622" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:luffywang622##gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

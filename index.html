@@ -1,0 +1,1123 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="西路之火,PHP">
+    <meta name="description" content="西路之火">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>西路之火</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <link href="https://fonts.loli.net/css?family=Rubik" rel="stylesheet">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">西路之火</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">西路之火</div>
+        <div class="logo-desc">
+            
+            Learn and Live.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+<style>
+    .carousel-control {
+        width: 45px;
+        height: 45px;
+        line-height: 55px;
+        border-radius: 45px;
+        background: transparent;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    #prev-cover {
+        position: absolute;
+        top: 48%;
+        left: 8px;
+    }
+
+    #next-cover {
+        position: absolute;
+        top: 48%;
+        right: 8px;;
+    }
+
+    #prev-cover i {
+        margin-right: 3px;
+    }
+
+    #next-cover i {
+        margin-left: 3px;
+    }
+
+    .carousel-control:hover {
+        background-color:rgba(0, 0, 0, .4);
+    }
+
+    .carousel-control i {
+        color: #fff;
+        font-size: 2.4rem;
+    }
+</style>
+
+
+
+<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
+    
+
+    <div class="carousel-item red white-text bg-cover about-cover">
+        <div class="container">
+            <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+    
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    
+        <div class="brand">
+            <div class="title center-align">
+                
+                    愿你出走半生，归来仍是少年。
+                
+            </div>
+
+            <div class="description center-align">
+                
+                    Learn and Live.
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+// 每天切换 banner 图.  Switch banner image every day.
+$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+//$('.bg-cover').css('background', 'radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%)');
+</script>
+
+            <div class="cover-btns">
+                <a href="#indexCard" class="waves-effect waves-light btn">
+                    <i class="fa fa-angle-double-down"></i>开始阅读
+                </a>
+
+                
+            </div>
+            <div class="cover-social-link">
+    <a href="https://github.com/cyd622" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:luffywang622##gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script>
+$(function () {
+    let coverSlider = $('.carousel');
+    coverSlider.carousel({
+        duration: Number('120'),
+        fullWidth: true,
+        indicators: 'true' === 'true'
+    });
+
+    let carouselIntervalId;
+    
+    // Loop to call the next cover article picture.
+    let autoCarousel = function() {
+        carouselIntervalId = setInterval(function () {
+            coverSlider.carousel('next');
+        }, 5000);
+    };
+    // autoCarousel();
+    
+
+    let restartPlay = function () {
+        
+        clearInterval(carouselIntervalId);
+        autoCarousel();
+        
+    };
+
+    
+    // prev and next cover post.
+    $('#prev-cover').click(function () {
+        coverSlider.carousel('prev');
+        restartPlay();
+    });
+    $('#next-cover').click(function () {
+        coverSlider.carousel('next');
+        restartPlay();
+    });
+    
+});
+</script>
+
+
+
+<main class="content">
+
+    
+    <div id="indexCard" class="index-card">
+        <div class="container ">
+            <div class="card">
+                <div class="card-content">
+                    
+                    <i class="fa fa-volume-up fa-lg fa-fw text-color"></i>
+此生之路，我将走过；走过这一次，便再也无法重来。所有力所能及的善行，所有充盈于心的善意，我将毫不吝惜，即刻倾于。我将不再拖延，再不淡漠，只因此生之路，再也无法重来。
+                    
+
+                    
+
+                    
+
+                    <div id="recommend-sections" class="recommend">
+                        
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/uncategorized/you-guan-php-he-js-fu-dian-yun-suan-de-keng/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="有关 PHP 和 js 浮点运算的坑">
+                            
+                            <span class="card-title">有关 PHP 和 js 浮点运算的坑</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            
+本文文章参考于网络
+
+Javascript
+0.1 + 0.2 为啥不等于 0
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-user fa-fw"></i>
+                                cyd622
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PHP/" target="_blank">
+                            <span class="chip tag-bg-color">PHP</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/laravel/restful-api-she-ji-gui-fan/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="RESTful API 设计规范">
+                            
+                            <span class="card-title">RESTful API 设计规范</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            
+本文是为 大渝网 API 开发规范拟定的一个 beta 版，文章大量参考了目前
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PHP/" target="_blank">
+                            <span class="chip tag-bg-color">PHP</span>
+                        </a>
+                        
+                        <a href="/tags/Laravel/" target="_blank">
+                            <span class="chip tag-bg-color">Laravel</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/laravel/laravel-de-shi-ba-ge-zui-jia-shi-jian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Laravel 的十八个最佳实践">
+                            
+                            <span class="card-title">Laravel 的十八个最佳实践</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            
+本文转载于LearnKu Laravel 的十八个最佳实践
+
+
+
+本文翻译改编
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PHP/" target="_blank">
+                            <span class="chip tag-bg-color">PHP</span>
+                        </a>
+                        
+                        <a href="/tags/Laravel/" target="_blank">
+                            <span class="chip tag-bg-color">Laravel</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/uncategorized/you-xiu-qian-duan-cdn-jing-xiang/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="国内外优秀前端 CDN，Google Fonts 国内镜像">
+                            
+                            <span class="card-title">国内外优秀前端 CDN，Google Fonts 国内镜像</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            CDN要求速度快，项目多，版本更新快，国内BootCDN.cn我觉得是最好的，没
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-user fa-fw"></i>
+                                cyd622
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CDN/" target="_blank">
+                            <span class="chip tag-bg-color">CDN</span>
+                        </a>
+                        
+                        <a href="/tags/CSS/" target="_blank">
+                            <span class="chip tag-bg-color">CSS</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/mysql/mysql-gui-fan-shu-ju-ku/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MySQL规范数据库">
+                            
+                            <span class="card-title">MySQL规范数据库</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            命名规范
+对象名称必须使用小写，多单词统一使用下划线分割
+
+命名的单词必须做到顾
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Mysql/" class="post-category" target="_blank">
+                                    Mysql
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Mysql/" target="_blank">
+                            <span class="chip tag-bg-color">Mysql</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/laravel/laravel9-ge-bu-jing-chang-yong-de-xiao-ji-qiao/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Laravel 9 个不经常用的小技巧">
+                            
+                            <span class="card-title">Laravel 9 个不经常用的小技巧</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            更新父表的 timestamps如果你想在更新关联表的同时，更新父表的times
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PHP/" target="_blank">
+                            <span class="chip tag-bg-color">PHP</span>
+                        </a>
+                        
+                        <a href="/tags/Laravel/" target="_blank">
+                            <span class="chip tag-bg-color">Laravel</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/laravel/shi-ge-tui-jian-shi-yong-de-laravel-de-fu-zhu-han-shu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="十个推荐使用的Laravel的辅助函数">
+                            
+                            <span class="card-title">十个推荐使用的Laravel的辅助函数</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            Laravel 包含各种全局辅助函数。 laravel 中包含大量辅助函数，您可
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PHP/" target="_blank">
+                            <span class="chip tag-bg-color">PHP</span>
+                        </a>
+                        
+                        <a href="/tags/Laravel/" target="_blank">
+                            <span class="chip tag-bg-color">Laravel</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/mysql/mysql-zui-jia-shi-jian-ru-he-suo-yin-json-zi-duan/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MySQL最佳实践-如何索引JSON字段">
+                            
+                            <span class="card-title">MySQL最佳实践-如何索引JSON字段</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            概述MySQL从5.7.8起开始支持JSON字段，这极大的丰富了MySQL的数据
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Mysql/" class="post-category" target="_blank">
+                                    Mysql
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Mysql/" target="_blank">
+                            <span class="chip tag-bg-color">Mysql</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/laravel/li-yong-laravel-resources-lai-zheng-he-di-san-fang-api-shu-ju/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="利用 Laravel Resources 来整合第三方 API 数据">
+                            
+                            <span class="card-title">利用 Laravel Resources 来整合第三方 API 数据</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            
+对于某些应用程序，可能需要第三方服务或者 API 来提取某些数据，将该数据转换
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PHP/" target="_blank">
+                            <span class="chip tag-bg-color">PHP</span>
+                        </a>
+                        
+                        <a href="/tags/Laravel/" target="_blank">
+                            <span class="chip tag-bg-color">Laravel</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/uncategorized/ge-chong-shi-yong-de-gong-ju/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="各种实用的工具">
+                            
+                            <span class="card-title">各种实用的工具</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            估计大部分人都会有这样的问题，在平常玩微博或的时候看到别人分享的一些实用的东西，
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-user fa-fw"></i>
+                                cyd622
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PHP/" target="_blank">
+                            <span class="chip tag-bg-color">PHP</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/laravel/xia-zai-liang-zui-gao-de-100-ge-laravel-kuo-zhan-bao-tui-jian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="下载量最高的 100 个 Laravel 扩展包推荐">
+                            
+                            <span class="card-title">下载量最高的 100 个 Laravel 扩展包推荐</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            说明Laravel 另一个令人喜欢的地方，是拥有活跃的开发者社区，而活跃的开发者
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PHP/" target="_blank">
+                            <span class="chip tag-bg-color">PHP</span>
+                        </a>
+                        
+                        <a href="/tags/Laravel/" target="_blank">
+                            <span class="chip tag-bg-color">Laravel</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in1">
+                <div class="card">
+                    <a href="/composer/packagist-jing-xiang-shi-yong-fang-fa/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Packagist 镜像使用方法">
+                            
+                            <span class="card-title">Packagist 镜像使用方法</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                            
+还没安装 Composer 吗？请往下看如何安装 Composer 。
+
+镜像
+                            
+                            ...
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Composer/" class="post-category" target="_blank">
+                                    Composer
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PHP/" target="_blank">
+                            <span class="chip tag-bg-color">PHP</span>
+                        </a>
+                        
+                        <a href="/tags/Packagist/" target="_blank">
+                            <span class="chip tag-bg-color">Packagist</span>
+                        </a>
+                        
+                        <a href="/tags/Composer/" target="_blank">
+                            <span class="chip tag-bg-color">Composer</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
+
+</main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a class="left btn-floating btn-large disabled">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/2/" class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+<footer class="page-footer foot-bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cyd622" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:luffywang622##gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

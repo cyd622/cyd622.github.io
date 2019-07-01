@@ -1,0 +1,795 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="利用 Laravel Resources 来整合第三方 API 数据, 西路之火,PHP">
+    <meta name="description" content="
+对于某些应用程序，可能需要第三方服务或者 API 来提取某些数据，将该数据转换为所需的响应，并将其传送到客户端界面。
+为此，我们需要找到一种方法，方便从控制器发送到视图或最终用户界面的数据保持一致性。
+因此，可能需要构建一个代表应用程序中">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>利用 Laravel Resources 来整合第三方 API 数据 | 西路之火</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <link href="https://fonts.loli.net/css?family=Rubik" rel="stylesheet">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">西路之火</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">西路之火</div>
+        <div class="logo-desc">
+            
+            Learn and Live.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        利用 Laravel Resources 来整合第三方 API 数据
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 4px 25px 4px 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PHP/" target="_blank">
+                                <span class="chip bg-color">PHP</span>
+                            </a>
+                        
+                            <a href="/tags/Laravel/" target="_blank">
+                                <span class="chip bg-color">Laravel</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                Laravel
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-02-27
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><img src="https://iocaffcdn.phphub.org/uploads/images/201901/18/1/YDRLhNQq47.png!large" alt="file"></p>
+<p>对于某些应用程序，可能需要第三方服务或者 API 来提取某些数据，将该数据转换为所需的响应，并将其传送到客户端界面。</p>
+<p>为此，我们需要找到一种方法，方便从控制器发送到视图或最终用户界面的数据保持一致性。</p>
+<p>因此，可能需要构建一个代表应用程序中所需资源的新对象或类。</p>
+<p>您或许可能会想『为什么我需要它？』，因为，您不希望在应用程序中公开所有的 API 响应数据，此外，你可能需要转换该响应的某些字段等。</p>
+<p>在本文中，我将向您展示一种简单的方法，将来自第三方 API 传入的数据转换为应用程序中的资源，以帮您保持一致性。</p>
+<blockquote>
+<p>在进一步讨论之前：在这篇文章中，我假设您至少已经基本了解了什么是 API 以及该如何使用 API ，如何使用 Laravel 框架及其某些组件作为 Eloquent ORM 。 如果你不知道上面的文章大概在说明写什么，你可能会发现一些挑战性的概念，但是，嘿，不要气馁，我相信你会发现这篇文章会给你带来一定的价值。</p>
+</blockquote>
+<h3 id="一些关于-“Laravel-resources”-的消息"><a href="#一些关于-“Laravel-resources”-的消息" class="headerlink" title="一些关于 “Laravel resources” 的消息"></a>一些关于 “Laravel resources” 的消息</h3><p>‘API  Resources’ 在 Laravel 5.5 中引入，作为是“将您的模型和模型集合表达并轻松转换为 JSON 数据格式”的一种方式。</p>
+<p>虽然这是官方的说明，并且您发现此部分在官方网站的 Eloquent 文档上没有此目录索引，但您必须知道这些资源并未严格附加到 Eloquent ORM 当中。</p>
+<p>在最基本的意义上来说，Eloquent 允许您将给指定对象转换为不同的对象。</p>
+<pre><code>&lt;?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Resources\Json\Resource;
+
+class UserResource extends Resource
+{
+    /**
+     * 将资源转换为数组。
+     *
+     * @param  \Illuminate\Http\Request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return [
+            &#39;id&#39; =&gt; $this-&gt;id,
+            &#39;name&#39; =&gt; $this-&gt;name,
+            &#39;email&#39; =&gt; $this-&gt;email,
+            &#39;created_at&#39; =&gt; $this-&gt;created_at,
+            &#39;updated_at&#39; =&gt; $this-&gt;updated_at,
+        ];
+    }
+}
+</code></pre><p>您可以通过阅读官方文档了解有关 Resources 的所有信息：<a href="https://laravel.com/docs/5.5/eloquent-resources" target="_blank" rel="noopener">Eloquent: API Resources</a></p>
+<h3 id="使用第三方-API"><a href="#使用第三方-API" class="headerlink" title="使用第三方 API"></a>使用第三方 API</h3><p>在使用第三方 API 时，您需要找到一种方法将传入的响应数据转换为结构一致的数据。</p>
+<blockquote>
+<p>有关 Laravel 的最新消息：不久前 <a href="https://medium.com/@ericlbarnes" target="_blank" rel="noopener">Eric L. Barnes</a> 发表了一篇文章，描述了他如何使用 Laravel 为 laravel-news 网站建立一个前端页面，然后用 WordPress  作为后端并从 WordPress API 读取数据。你可以点击这里查看所有文章。 <a href="https://laravel-news.com/wordpress-api-with-laravel" target="_blank" rel="noopener">https://laravel-news.com/wordpress-api-with-laravel</a></p>
+</blockquote>
+<p>因此，以具体案例为例。 假设您的应用程序中有一个 WordPress 存储库，它从 WordPress API 中提取数据。</p>
+<pre><code>&lt;?php
+class WordpressRepository {
+    pubic function getPost($id)
+    {
+        $response = $this-&gt;apiClient-&gt;get(
+            &#39;post&#39;,
+             $query = [&#39;id&#39; =&gt; $id]
+        );
+        // return as array
+        return json_decode($response, true);
+    }
+}
+</code></pre><p>假设您从 WordPress API 接收此对象(数据)</p>
+<pre><code>// wordpress version 0.1
+{
+    ID: 123
+    post_title: &quot;some title&quot;
+    post_content: &quot;some content&quot;,
+    post_author: &quot;joe&quot;,
+    publish_date: &quot;01-01-2001&quot;
+}
+</code></pre><p>您可以将此响应包装到一个数组中，然后在所有控制器或视图上使用此数据。</p>
+<h3 id="响应格式一致性"><a href="#响应格式一致性" class="headerlink" title="响应格式一致性"></a>响应格式一致性</h3><p>不妨想一想，如果 WordPress 的 API 更新了怎么办。假如新版本会返回一个不同格式的数据。</p>
+<pre><code>// wordpress version 0.1
+{
+    post_id: 123
+    title: &quot;some title&quot;
+    content: &quot;some content&quot;,
+    author: &quot;joe&quot;,
+    date: &quot;01-01-2001&quot;
+}
+</code></pre><p>那么你就需要在项目的多个位置把 <code>$post[&#39;post_title&#39;]</code> 替换成 <code>$post[&#39;title&#39;]</code> 。</p>
+<p>使用中间件来处理响应数据可以确保数据库的一致性。当响应的格式增加时，你只需要更新某段代码即可。</p>
+<h3 id="使用-API-资源批量处理数据"><a href="#使用-API-资源批量处理数据" class="headerlink" title="使用 API 资源批量处理数据"></a>使用 API 资源批量处理数据</h3><p>正如我之前提到的，你可以使用没有Eloquent的 「Resources」，下面就是一个很好的例子。<br>您需要做的第一件事是创建一个新的「Post」资源; 使用 artisan：</p>
+<p><code>$ php artisan make:resource Post</code></p>
+<pre><code>&lt;?php
+namespace App\Resources;
+use Illuminate\Http\Resources\Json\Resource;
+class Post extends Resource
+{
+    public function toArray($request)
+    {
+        return [
+            &#39;title&#39; =&gt; $this-&gt;resource[&#39;title&#39;],
+            &#39;content&#39; =&gt; $this-&gt;resource[&#39;content&#39;],
+            &#39;slug&#39; =&gt; $this-&gt;resource[&#39;slug&#39;]
+        ];
+    }
+}
+</code></pre><h3 id="返回单个资源实例"><a href="#返回单个资源实例" class="headerlink" title="返回单个资源实例"></a>返回单个资源实例</h3><p>现在可以参照相同的例子，在你的 API 容器类中，你可以创建一个此资源新的实例，然后使用 resolve() 方法来返回转换后的对象（这将返回一个数组）。</p>
+<pre><code>&lt;?php
+class WordpressRepository {
+    pubic function getPost($id)
+    {
+        $response = $this-&gt;apiClient-&gt;get(
+            &#39;post&#39;,
+            $query = [&#39;id&#39; =&gt; $id]
+        );
+        $data = json_decode($response, true);
+        return Post::make($data)-&gt;resolve();
+    }
+}
+
+</code></pre><h3 id="返回数据集合"><a href="#返回数据集合" class="headerlink" title="返回数据集合"></a>返回数据集合</h3><p>我们可以创建一个专用的资源类 「PostCollection」。</p>
+<p><code>$ php artisan make:resource PostCollection</code></p>
+<pre><code>&lt;?php
+namespace App\PublisherPlus\Resources;
+use Illuminate\Http\Resources\Json\ResourceCollection;
+class PostCollection extends ResourceCollection
+{
+    public function toArray($request)
+    {
+        return [
+            &#39;data&#39; =&gt; $this-&gt;collection
+                          -&gt;map
+                          -&gt;toArray($request)
+                          -&gt;all(),
+            &#39;links&#39; =&gt; [
+               &#39;self&#39; =&gt; &#39;link-value&#39;,
+             ],
+        ];
+    }
+}
+</code></pre><p>在上面的例子中，<code>data</code> 将会包含一个 <code>Posts</code> 数组，该数组的结构跟你在 <code>Post</code> 资源中定义的一样。</p>
+<p>你可以在这里了解更多关于 「resource collections」 的信息。</p>
+<p><a href="https://learnku.com/docs/laravel/5.7/eloquent-resources/2298#writing-resources" target="_blank" rel="noopener">API 资源</a></p>
+<h3 id="总结！"><a href="#总结！" class="headerlink" title="总结！"></a>总结！</h3><p>因此，如果你仔细研究 「resources」 的定义。你可以将其视为中间件，用于将已有数据转为新的、不同格式的对象或数组。</p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://blog.xiluhuo.cn" class="b-link-green">西路之火</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/laravel/li-yong-laravel-resources-lai-zheng-he-di-san-fang-api-shu-ju/" class="b-link-green">利用 Laravel Resources 来整合第三方 API 数据</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/mysql/mysql-zui-jia-shi-jian-ru-he-suo-yin-json-zi-duan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MySQL最佳实践-如何索引JSON字段">
+                        
+                        <span class="card-title">MySQL最佳实践-如何索引JSON字段</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">概述MySQL从5.7.8起开始支持JSON字段，这极大的丰富了MySQL的数据类型。也方便了广大开发人员。但MySQL并没有提供对JSON对象中的字段进行索引的功能，至少没有直接对其字段进行索引的方</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Mysql/" class="post-category" target="_blank">
+                                    Mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Mysql/" target="_blank">
+                        <span class="chip bg-color">Mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/uncategorized/ge-chong-shi-yong-de-gong-ju/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="各种实用的工具">
+                        
+                        <span class="card-title">各种实用的工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">估计大部分人都会有这样的问题，在平常玩微博或的时候看到别人分享的一些实用的东西，比如一些NB的js库，或者php组件等等。看完当时加入了浏览器书签。但是出现的现象就是很少去翻它，或者说由于懒得整理后期</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-02-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            cyd622
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 西路之火<br />'
+            + '作者: cyd622<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer foot-bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cyd622" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:luffywang622##gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

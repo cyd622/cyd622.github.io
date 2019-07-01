@@ -1,0 +1,1316 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Laravel 的十八个最佳实践, 西路之火,PHP">
+    <meta name="description" content="
+本文转载于LearnKu Laravel 的十八个最佳实践
+
+
+
+本文翻译改编自 Laravel 的十八个最佳实践
+
+这篇文章并不是什么由 Laravel 改编的 SOLID 原则、模式等。
+只是为了让你注意你在现实生活的 Laravel">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Laravel 的十八个最佳实践 | 西路之火</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <link href="https://fonts.loli.net/css?family=Rubik" rel="stylesheet">
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">西路之火</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">西路之火</div>
+        <div class="logo-desc">
+            
+            Learn and Live.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Laravel 的十八个最佳实践
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 4px 25px 4px 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PHP/" target="_blank">
+                                <span class="chip bg-color">PHP</span>
+                            </a>
+                        
+                            <a href="/tags/Laravel/" target="_blank">
+                                <span class="chip bg-color">Laravel</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                Laravel
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-05-05
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>本文转载于<code>LearnKu</code> <a href="https://learnku.com/articles/12762/eighteen-best-practices-of-laravel" target="_blank" rel="noopener">Laravel 的十八个最佳实践</a></p>
+</blockquote>
+<hr>
+<ul>
+<li>本文翻译改编自 <a href="https://github.com/alexeymezenin/laravel-best-practices" target="_blank" rel="noopener">Laravel 的十八个最佳实践</a></li>
+</ul>
+<p>这篇文章并不是什么由 Laravel 改编的 SOLID 原则、模式等。</p>
+<p>只是为了让你注意你在现实生活的 Laravel 项目中最常忽略的内容。</p>
+<h2 id="单一责任原则"><a href="#单一责任原则" class="headerlink" title="单一责任原则"></a>单一责任原则</h2><p>一个类和一个方法应该只有一个职责。<br>错误的做法：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getFullNameAttribute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">auth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">auth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">hasRole</span><span class="token punctuation">(</span><span class="token string">'client'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">auth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">isVerified</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">'Mr. '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">first_name</span> <span class="token punctuation">.</span> <span class="token string">' '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">middle_name</span> <span class="token punctuation">.</span> <span class="token string">' '</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">last_name</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">first_name</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">.</span> <span class="token string">'. '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">last_name</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>推荐的做法：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getFullNameAttribute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">isVerifiedClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getFullNameLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getFullNameShort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">isVerifiedClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">auth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">auth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">hasRole</span><span class="token punctuation">(</span><span class="token string">'client'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">auth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">isVerified</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getFullNameLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'Mr. '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">first_name</span> <span class="token punctuation">.</span> <span class="token string">' '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">middle_name</span> <span class="token punctuation">.</span> <span class="token string">' '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">last_name</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getFullNameShort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">first_name</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">.</span> <span class="token string">'. '</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">last_name</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="强大的模型-amp-简单控制器"><a href="#强大的模型-amp-简单控制器" class="headerlink" title="强大的模型 &amp; 简单控制器"></a>强大的模型 &amp; 简单控制器</h2><p>如果你使用查询构造器或原始 SQL 来查询，请将所有与数据库相关的逻辑放入 Eloquent 模型或存储库类中。 </p>
+<p>坏：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$clients</span> <span class="token operator">=</span> Client<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">verified</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token operator">-</span><span class="token operator">></span><span class="token function">with</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'orders'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$q</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'created_at'</span><span class="token punctuation">,</span> <span class="token string">'>'</span><span class="token punctuation">,</span> Carbon<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">today</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">subWeek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token operator">-</span><span class="token operator">></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token function">view</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'clients'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$clients</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">view</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'clients'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">client</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getWithNewOrders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">Class</span> <span class="token class-name">Client</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getWithNewOrders</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">verified</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">></span><span class="token function">with</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'orders'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token variable">$q</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'created_at'</span><span class="token punctuation">,</span> <span class="token string">'>'</span><span class="token punctuation">,</span> Carbon<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">today</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">subWeek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>将验证从控制器移动到请求类。 </p>
+<p>很常见但不推荐的做法：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span class="token punctuation">(</span>Request <span class="token variable">$request</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">'title'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'required|unique:posts|max:255'</span><span class="token punctuation">,</span>
+        <span class="token string">'body'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'required'</span><span class="token punctuation">,</span>
+        <span class="token string">'publish_at'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'nullable|date'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>最好是这样：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span class="token punctuation">(</span>PostRequest <span class="token variable">$request</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>    
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PostRequest</span> <span class="token keyword">extends</span> <span class="token class-name">Request</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">rules</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token string">'title'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'required|unique:posts|max:255'</span><span class="token punctuation">,</span>
+            <span class="token string">'body'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'required'</span><span class="token punctuation">,</span>
+            <span class="token string">'publish_at'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token string">'nullable|date'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="业务逻辑应该在服务类中"><a href="#业务逻辑应该在服务类中" class="headerlink" title="业务逻辑应该在服务类中"></a>业务逻辑应该在服务类中</h2><p>一个控制器必须只有一个职责，因此应该将业务逻辑从控制器移到服务类。 </p>
+<p>坏：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span class="token punctuation">(</span>Request <span class="token variable">$request</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">hasFile</span><span class="token punctuation">(</span><span class="token string">'image'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">file</span><span class="token punctuation">(</span><span class="token string">'image'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">move</span><span class="token punctuation">(</span><span class="token function">public_path</span><span class="token punctuation">(</span><span class="token string">'images'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'temp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span class="token punctuation">(</span>Request <span class="token variable">$request</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">articleService</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">handleUploadedImage</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">file</span><span class="token punctuation">(</span><span class="token string">'image'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ArticleService</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handleUploadedImage</span><span class="token punctuation">(</span><span class="token variable">$image</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">is_null</span><span class="token punctuation">(</span><span class="token variable">$image</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$image</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">move</span><span class="token punctuation">(</span><span class="token function">public_path</span><span class="token punctuation">(</span><span class="token string">'images'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token string">'temp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="不要重复你自己（DRY）"><a href="#不要重复你自己（DRY）" class="headerlink" title="不要重复你自己（DRY）"></a>不要重复你自己（DRY）</h2><p>尽可能重用代码。 SRP（单一职责原则）正在帮助你避免重复。当然，这也包括了 Blade 模板、Eloquent 的范围等。</p>
+<p>坏：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getActive</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'verified'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">whereNotNull</span><span class="token punctuation">(</span><span class="token string">'deleted_at'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getArticles</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">whereHas</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$q</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'verified'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">whereNotNull</span><span class="token punctuation">(</span><span class="token string">'deleted_at'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">scopeActive</span><span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$q</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'verified'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">whereNotNull</span><span class="token punctuation">(</span><span class="token string">'deleted_at'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getActive</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">active</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getArticles</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">whereHas</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$q</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$q</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">active</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="最好倾向于使用-Eloquent-而不是-Query-Builder-和原生的-SQL-查询。要优先于数组的集合"><a href="#最好倾向于使用-Eloquent-而不是-Query-Builder-和原生的-SQL-查询。要优先于数组的集合" class="headerlink" title="最好倾向于使用 Eloquent 而不是 Query Builder 和原生的 SQL 查询。要优先于数组的集合"></a>最好倾向于使用 Eloquent 而不是 Query Builder 和原生的 SQL 查询。要优先于数组的集合</h2><p>Eloquent 可以编写可读和可维护的代码。此外，Eloquent 也拥有很棒的内置工具，比如软删除、事件、范围等。</p>
+<p>比如你这样写：</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> <span class="token punctuation">`</span>articles<span class="token punctuation">`</span>
+<span class="token keyword">WHERE</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+              <span class="token keyword">FROM</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span>
+              <span class="token keyword">WHERE</span> <span class="token punctuation">`</span>articles<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>user_id<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>id<span class="token punctuation">`</span>
+              <span class="token operator">AND</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+                          <span class="token keyword">FROM</span> <span class="token punctuation">`</span>profiles<span class="token punctuation">`</span>
+                          <span class="token keyword">WHERE</span> <span class="token punctuation">`</span>profiles<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>user_id<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">)</span> 
+              <span class="token operator">AND</span> <span class="token punctuation">`</span>users<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>deleted_at<span class="token punctuation">`</span> <span class="token operator">IS</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span>
+<span class="token operator">AND</span> <span class="token punctuation">`</span>verified<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token string">'1'</span>
+<span class="token operator">AND</span> <span class="token punctuation">`</span>active<span class="token punctuation">`</span> <span class="token operator">=</span> <span class="token string">'1'</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token punctuation">`</span>created_at<span class="token punctuation">`</span> <span class="token keyword">DESC</span>
+</code></pre>
+<p>还不如这样写：</p>
+<pre class=" language-php"><code class="language-php">Article<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token string">'user.profile'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">verified</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">latest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="批量赋值"><a href="#批量赋值" class="headerlink" title="批量赋值"></a>批量赋值</h2><p>比如你这样写：</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$article</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Article</span><span class="token punctuation">;</span>
+<span class="token variable">$article</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">title</span> <span class="token operator">=</span> <span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">title</span><span class="token punctuation">;</span>
+<span class="token variable">$article</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">content</span> <span class="token operator">=</span> <span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">content</span><span class="token punctuation">;</span>
+<span class="token variable">$article</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">verified</span> <span class="token operator">=</span> <span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">verified</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Add category to article</span>
+<span class="token variable">$article</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">category_id</span> <span class="token operator">=</span> <span class="token variable">$category</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">id</span><span class="token punctuation">;</span>
+<span class="token variable">$article</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>是不是还不如这样写：</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$category</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">article</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">create</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="不要在-Blade-模板中执行查询并使用关联加载（N-1-问题）"><a href="#不要在-Blade-模板中执行查询并使用关联加载（N-1-问题）" class="headerlink" title="不要在 Blade 模板中执行查询并使用关联加载（N + 1 问题）"></a>不要在 Blade 模板中执行查询并使用关联加载（N + 1 问题）</h2><p>不好的地方在于，这对于100 个用户来说，等于执行 101 个 DB 查询：</p>
+<pre class=" language-php"><code class="language-php">@<span class="token keyword">foreach</span> <span class="token punctuation">(</span>User<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">$user</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">profile</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+@<span class="token keyword">endforeach</span>
+</code></pre>
+<p>下面的做法，对于 100 个用户来说，仅仅只执行 2 个 DB 查询：</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$users</span> <span class="token operator">=</span> User<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">with</span><span class="token punctuation">(</span><span class="token string">'profile'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+@<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$users</span> <span class="token keyword">as</span> <span class="token variable">$user</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">profile</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+@<span class="token keyword">endforeach</span>
+</code></pre>
+<h2 id="与其花尽心思给你的代码写注释，还不如对方法或变量写一个描述性的名称"><a href="#与其花尽心思给你的代码写注释，还不如对方法或变量写一个描述性的名称" class="headerlink" title="与其花尽心思给你的代码写注释，还不如对方法或变量写一个描述性的名称"></a>与其花尽心思给你的代码写注释，还不如对方法或变量写一个描述性的名称</h2><p>坏：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">)</span> <span class="token variable">$builder</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">joins</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">// 确定是否有任何连接。</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">)</span> <span class="token variable">$builder</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">joins</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<p>最好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">hasJoins</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="不要把-JS-和-CSS-放在-Blade-模板中，也不要将任何-HTML-放在-PHP-类中"><a href="#不要把-JS-和-CSS-放在-Blade-模板中，也不要将任何-HTML-放在-PHP-类中" class="headerlink" title="不要把 JS 和 CSS 放在 Blade 模板中，也不要将任何 HTML 放在 PHP 类中"></a>不要把 JS 和 CSS 放在 Blade 模板中，也不要将任何 HTML 放在 PHP 类中</h2><p>坏：</p>
+<pre class=" language-php"><code class="language-php">let article <span class="token operator">=</span> `<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token variable">$article</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>`<span class="token punctuation">;</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>article<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{ json_encode($article) }}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span>
+
+<span class="token keyword">Or</span>
+
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>js-fav-article<span class="token punctuation">"</span></span> <span class="token attr-name">data-article</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{ json_encode($article) }}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$article</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span></span>
+</code></pre>
+<p>最好的方法是使用在 Javascript 中这样来传输数据：</p>
+<pre class=" language-php"><code class="language-php">let article <span class="token operator">=</span> $<span class="token punctuation">(</span><span class="token string">'#article'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">val</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="在代码中使用配置和语言文件、常量，而不是写死它"><a href="#在代码中使用配置和语言文件、常量，而不是写死它" class="headerlink" title="在代码中使用配置和语言文件、常量，而不是写死它"></a>在代码中使用配置和语言文件、常量，而不是写死它</h2><p> 坏：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">isNormal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$article</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">type</span> <span class="token operator">===</span> <span class="token string">'normal'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">return</span> <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">with</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token string">'Your article has been added!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">isNormal</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$article</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">type</span> <span class="token operator">===</span> Article<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">TYPE_NORMAL</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">return</span> <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">with</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">'app.article_added'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="使用社区接受的标准的-Laravel-工具"><a href="#使用社区接受的标准的-Laravel-工具" class="headerlink" title="使用社区接受的标准的 Laravel 工具"></a>使用社区接受的标准的 Laravel 工具</h2><p>最好使用内置的 Laravel 功能和社区软件包，而不是其他第三方软件包和工具。因为将来与你的应用程序一起工作的开发人员都需要学习新的工具。另外，使用第三方软件包或工具的话，如果遇到困难，从 Laravel 社区获得帮助的机会会大大降低。不要让你的客户为此付出代价！</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>标准工具</th>
+<th>第三方工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>授权</td>
+<td>Policies</td>
+<td>Entrust, Sentinel and other packages</td>
+</tr>
+<tr>
+<td>前端编译</td>
+<td>Laravel Mix</td>
+<td>Grunt, Gulp, 3rd party packages</td>
+</tr>
+<tr>
+<td>开发环境</td>
+<td>Homestead</td>
+<td>Docker</td>
+</tr>
+<tr>
+<td>部署</td>
+<td>Laravel Forge</td>
+<td>Deployer and other solutions</td>
+</tr>
+<tr>
+<td>单元测试</td>
+<td>PHPUnit, Mockery</td>
+<td>Phpspec</td>
+</tr>
+<tr>
+<td>浏览器测试</td>
+<td>Laravel Dusk</td>
+<td>Codeception</td>
+</tr>
+<tr>
+<td>数据库操作</td>
+<td>Eloquent</td>
+<td>SQL, Doctrine</td>
+</tr>
+<tr>
+<td>模板</td>
+<td>Blade</td>
+<td>Twig</td>
+</tr>
+<tr>
+<td>数据操作</td>
+<td>Laravel collections</td>
+<td>Arrays</td>
+</tr>
+<tr>
+<td>表单验证</td>
+<td>Request classes</td>
+<td>3rd party packages, validation in controller</td>
+</tr>
+<tr>
+<td>认证</td>
+<td>Built-in</td>
+<td>3rd party packages, your own solution</td>
+</tr>
+<tr>
+<td>API 认证</td>
+<td>Laravel Passport</td>
+<td>3rd party JWT and OAuth packages</td>
+</tr>
+<tr>
+<td>创建 API</td>
+<td>Built-in</td>
+<td>Dingo API and similar packages</td>
+</tr>
+<tr>
+<td>数据库结构操作</td>
+<td>Migrations</td>
+<td>Working with DB structure directly</td>
+</tr>
+<tr>
+<td>局部化</td>
+<td>Built-in</td>
+<td>3rd party packages</td>
+</tr>
+<tr>
+<td>实时用户接口</td>
+<td>Laravel Echo, Pusher</td>
+<td>3rd party packages and working with WebSockets directly</td>
+</tr>
+<tr>
+<td>Generating testing data</td>
+<td>Seeder classes, Model Factories, Faker</td>
+<td>Creating testing data manually</td>
+</tr>
+<tr>
+<td>生成测试数据</td>
+<td>Laravel Task Scheduler</td>
+<td>Scripts and 3rd party packages</td>
+</tr>
+<tr>
+<td>数据库</td>
+<td>MySQL, PostgreSQL, SQLite, SQL Server</td>
+<td>MongoDB</td>
+</tr>
+</tbody>
+</table>
+<h2 id="遵循Laravel命名约定"><a href="#遵循Laravel命名约定" class="headerlink" title="遵循Laravel命名约定"></a>遵循Laravel命名约定</h2><p>遵循 <a href="http://www.php-fig.org/psr/psr-2/" target="_blank" rel="noopener">PSR 标准</a>。 另外，请遵循 Laravel 社区接受的命名约定：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>规则</th>
+<th>正确示例</th>
+<th>错误示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Controller</td>
+<td>单数</td>
+<td>ArticleController</td>
+<td><del>ArticlesController</del></td>
+</tr>
+<tr>
+<td>Route</td>
+<td>复数</td>
+<td>articles/1</td>
+<td><del>article/1</del></td>
+</tr>
+<tr>
+<td>Named route</td>
+<td>带点符号的蛇形命名</td>
+<td>users.show_active</td>
+<td><del>users.show-active, show-active-users</del></td>
+</tr>
+<tr>
+<td>Model</td>
+<td>单数</td>
+<td>User</td>
+<td><del>Users</del></td>
+</tr>
+<tr>
+<td>hasOne or belongsTo relationship</td>
+<td>单数</td>
+<td>articleComment</td>
+<td><del>articleComments, article_comment</del></td>
+</tr>
+<tr>
+<td>All other relationships</td>
+<td>复数</td>
+<td>articleComments</td>
+<td><del>articleComment, article_comments</del></td>
+</tr>
+<tr>
+<td>Table</td>
+<td>复数</td>
+<td>article_comments</td>
+<td><del>article_comment, articleComments</del></td>
+</tr>
+<tr>
+<td>Pivot table</td>
+<td>按字母顺序排列的单数模型名称</td>
+<td>article_user</td>
+<td><del>user_article, articles_users</del></td>
+</tr>
+<tr>
+<td>Table column</td>
+<td>带着模型名称的蛇形命名</td>
+<td>meta_title</td>
+<td><del>MetaTitle; article_meta_title</del></td>
+</tr>
+<tr>
+<td>Foreign key</td>
+<td>带_id后缀的单数型号名称</td>
+<td>article_id</td>
+<td><del>ArticleId, id_article, articles_id</del></td>
+</tr>
+<tr>
+<td>Primary key</td>
+<td>-</td>
+<td>id</td>
+<td><del>custom_id</del></td>
+</tr>
+<tr>
+<td>Migration</td>
+<td>-</td>
+<td>2017_01_01_000_create_xx_table</td>
+<td><del>2017_01_01_0000_articles</del></td>
+</tr>
+<tr>
+<td>Method</td>
+<td>小驼峰命名</td>
+<td>getAll</td>
+<td><del>get_all</del></td>
+</tr>
+<tr>
+<td>Method in resource controller</td>
+<td><a href="https://laravel.com/docs/master/controllers#resource-controllers" target="_blank" rel="noopener">具体看表格</a></td>
+<td>store</td>
+<td><del>saveArticle</del></td>
+</tr>
+<tr>
+<td>Method in test class</td>
+<td>小驼峰命名</td>
+<td>testGuestCannotSeeArticle</td>
+<td><del>test_guest_cannot_see_article</del></td>
+</tr>
+<tr>
+<td>Variable</td>
+<td>小驼峰命名</td>
+<td>$articlesWithAuthor</td>
+<td><del>$articles_with_author</del></td>
+</tr>
+<tr>
+<td>Collection</td>
+<td>具描述性的复数形式</td>
+<td>$activeUsers = User::active()-&gt;get()</td>
+<td><del>$active, $data</del></td>
+</tr>
+<tr>
+<td>Object</td>
+<td>具描述性的单数形式</td>
+<td>$activeUser = User::active()-&gt;first()</td>
+<td><del>$users, $obj</del></td>
+</tr>
+<tr>
+<td>Config and language files index</td>
+<td>蛇形命名</td>
+<td>articles_enabled</td>
+<td><del>ArticlesEnabled; articles-enabled</del></td>
+</tr>
+<tr>
+<td>View</td>
+<td>蛇形命名</td>
+<td>show_filtered.blade.php</td>
+<td><del>showFiltered.blade.php, show-filtered.blade.php</del></td>
+</tr>
+<tr>
+<td>Config</td>
+<td>蛇形命名</td>
+<td>google_calendar.php</td>
+<td><del>googleCalendar.php, google-calendar.php</del></td>
+</tr>
+<tr>
+<td>Contract (interface)</td>
+<td>形容词或名词</td>
+<td>Authenticatable</td>
+<td><del>AuthenticationInterface, IAuthentication</del></td>
+</tr>
+<tr>
+<td>Trait</td>
+<td>形容词</td>
+<td>Notifiable</td>
+<td><del>NotificationTrait</del></td>
+</tr>
+</tbody>
+</table>
+<h2 id="尽可能使用更短、更易读的语法"><a href="#尽可能使用更短、更易读的语法" class="headerlink" title="尽可能使用更短、更易读的语法"></a>尽可能使用更短、更易读的语法</h2><p>坏：</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">session</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'cart'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">input</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token function">session</span><span class="token punctuation">(</span><span class="token string">'cart'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">name</span><span class="token punctuation">;</span>
+</code></pre>
+<p>更多示例：</p>
+<table>
+<thead>
+<tr>
+<th>通用语法</th>
+<th>更短、更可读的语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Session::get(&#39;cart&#39;)</code></td>
+<td><code>session(&#39;cart&#39;)</code></td>
+</tr>
+<tr>
+<td><code>$request-&gt;session()-&gt;get(&#39;cart&#39;)</code></td>
+<td><code>session(&#39;cart&#39;)</code></td>
+</tr>
+<tr>
+<td><code>Session::put(&#39;cart&#39;, $data)</code></td>
+<td><code>session([&#39;cart&#39; =&gt; $data])</code></td>
+</tr>
+<tr>
+<td><code>$request-&gt;input(&#39;name&#39;), Request::get(&#39;name&#39;)</code></td>
+<td><code>$request-&gt;name, request(&#39;name&#39;)</code></td>
+</tr>
+<tr>
+<td><code>return Redirect::back()</code></td>
+<td><code>return back()</code></td>
+</tr>
+<tr>
+<td><code>is_null($object-&gt;relation) ? $object-&gt;relation-&gt;id : null }</code></td>
+<td><code>optional($object-&gt;relation)-&gt;id</code></td>
+</tr>
+<tr>
+<td><code>return view(&#39;index&#39;)-&gt;with(&#39;title&#39;, $title)-&gt;with(&#39;client&#39;, $client)</code></td>
+<td><code>return view(&#39;index&#39;, compact(&#39;title&#39;, &#39;client&#39;))</code></td>
+</tr>
+<tr>
+<td><code>$request-&gt;has(&#39;value&#39;) ? $request-&gt;value : &#39;default&#39;;</code></td>
+<td><code>$request-&gt;get(&#39;value&#39;, &#39;default&#39;)</code></td>
+</tr>
+<tr>
+<td><code>Carbon::now(), Carbon::today()</code></td>
+<td><code>now(), today()</code></td>
+</tr>
+<tr>
+<td><code>App::make(&#39;Class&#39;)</code></td>
+<td><code>app(&#39;Class&#39;)</code></td>
+</tr>
+<tr>
+<td><code>-&gt;where(&#39;column&#39;, &#39;=&#39;, 1)</code></td>
+<td><code>-&gt;where(&#39;column&#39;, 1)</code></td>
+</tr>
+<tr>
+<td><code>-&gt;orderBy(&#39;created_at&#39;, &#39;desc&#39;)</code></td>
+<td><code>-&gt;latest()</code></td>
+</tr>
+<tr>
+<td><code>-&gt;orderBy(&#39;age&#39;, &#39;desc&#39;)</code></td>
+<td><code>-&gt;latest(&#39;age&#39;)</code></td>
+</tr>
+<tr>
+<td><code>-&gt;orderBy(&#39;created_at&#39;, &#39;asc&#39;)</code></td>
+<td><code>-&gt;oldest()</code></td>
+</tr>
+<tr>
+<td><code>-&gt;select(&#39;id&#39;, &#39;name&#39;)-&gt;get()</code></td>
+<td><code>-&gt;get([&#39;id&#39;, &#39;name&#39;])</code></td>
+</tr>
+<tr>
+<td><code>-&gt;first()-&gt;name</code></td>
+<td><code>-&gt;value(&#39;name&#39;)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="使用-IoC-容器或-facades-代替新的-Class"><a href="#使用-IoC-容器或-facades-代替新的-Class" class="headerlink" title="使用 IoC 容器或 facades 代替新的 Class"></a>使用 IoC 容器或 <strong>facades</strong> 代替新的 Class</h2><p>新的 Class 语法创建类时，不仅使得类与类之间紧密耦合，还加重了测试的复杂度。推荐改用 IoC 容器或 facades。 </p>
+<p>坏：</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$user</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">;</span>
+<span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">create</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>User <span class="token variable">$user</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">user</span> <span class="token operator">=</span> <span class="token variable">$user</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">user</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">create</span><span class="token punctuation">(</span><span class="token variable">$request</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="不要直接从-env-文件获取数据"><a href="#不要直接从-env-文件获取数据" class="headerlink" title="不要直接从 .env 文件获取数据"></a>不要直接从 <code>.env</code> 文件获取数据</h2><p>将数据传递给配置文件，然后使用辅助函数 <code>config()</code> 在应用程序中使用数据。</p>
+<p>坏：</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$apiKey</span> <span class="token operator">=</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token string">'API_KEY'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">// config/api.php</span>
+<span class="token string">'key'</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token string">'API_KEY'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+<span class="token comment" spellcheck="true">// Use the data</span>
+<span class="token variable">$apiKey</span> <span class="token operator">=</span> <span class="token function">config</span><span class="token punctuation">(</span><span class="token string">'api.key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="以标准格式存储日期，必要时就使用访问器和修改器来修改日期格式"><a href="#以标准格式存储日期，必要时就使用访问器和修改器来修改日期格式" class="headerlink" title="以标准格式存储日期，必要时就使用访问器和修改器来修改日期格式"></a>以标准格式存储日期，必要时就使用访问器和修改器来修改日期格式</h2><p>坏：</p>
+<pre class=" language-php"><code class="language-php"><span class="token punctuation">{</span><span class="token punctuation">{</span> Carbon<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">createFromFormat</span><span class="token punctuation">(</span><span class="token string">'Y-d-m H-i'</span><span class="token punctuation">,</span> <span class="token variable">$object</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">ordered_at</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">toDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> Carbon<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">createFromFormat</span><span class="token punctuation">(</span><span class="token string">'Y-d-m H-i'</span><span class="token punctuation">,</span> <span class="token variable">$object</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">ordered_at</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'m-d'</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+</code></pre>
+<p>好：</p>
+<pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">// Model</span>
+<span class="token keyword">protected</span> <span class="token variable">$dates</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'ordered_at'</span><span class="token punctuation">,</span> <span class="token string">'created_at'</span><span class="token punctuation">,</span> <span class="token string">'updated_at'</span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getMonthDayAttribute</span><span class="token punctuation">(</span><span class="token variable">$date</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token variable">$date</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'m-d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// View</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$object</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">ordered_at</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">toDateString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token variable">$object</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">ordered_at</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">monthDay</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+</code></pre>
+<h2 id="其他良好做法"><a href="#其他良好做法" class="headerlink" title="其他良好做法"></a>其他良好做法</h2><ul>
+<li>千万不要在路由文件中放置任何逻辑。 </li>
+<li>在 Blade 模板中最小化 vanilla PHP 的使用。</li>
+</ul>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://blog.xiluhuo.cn" class="b-link-green">西路之火</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/laravel/laravel-de-shi-ba-ge-zui-jia-shi-jian/" class="b-link-green">Laravel 的十八个最佳实践</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/laravel/restful-api-she-ji-gui-fan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="RESTful API 设计规范">
+                        
+                        <span class="card-title">RESTful API 设计规范</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+本文是为 大渝网 API 开发规范拟定的一个 beta 版，文章大量参考了目前比较常见的 RESTful API 设计。
+
+为了更好的讨论规范带来的争议及问题，现已把该文档整理并开源到 github</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Laravel/" class="post-category" target="_blank">
+                                    Laravel
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PHP/" target="_blank">
+                        <span class="chip bg-color">PHP</span>
+                    </a>
+                    
+                    <a href="/tags/Laravel/" target="_blank">
+                        <span class="chip bg-color">Laravel</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/uncategorized/you-xiu-qian-duan-cdn-jing-xiang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="国内外优秀前端 CDN，Google Fonts 国内镜像">
+                        
+                        <span class="card-title">国内外优秀前端 CDN，Google Fonts 国内镜像</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">CDN要求速度快，项目多，版本更新快，国内BootCDN.cn我觉得是最好的，没有之一，什么新浪，百度，360的都是给内部用的。
+最近发现的CSS.NET也不错啊，还反代了Google字体库，够快，很</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            cyd622
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CDN/" target="_blank">
+                        <span class="chip bg-color">CDN</span>
+                    </a>
+                    
+                    <a href="/tags/CSS/" target="_blank">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 西路之火<br />'
+            + '作者: cyd622<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer foot-bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cyd622" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:luffywang622##gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
